@@ -187,3 +187,29 @@ body {
   .post { padding: 32px 22px; }
   .section { padding: 60px 20px; }
 }
+
+/* --- v2: Substack embed, post links, warm illustrated graphics --- */
+.substack-embed { display: flex; justify-content: center; margin: 26px 0 10px; }
+.substack-embed iframe { width: 100%; max-width: 480px; border-radius: 14px; background: #fff; }
+
+.post-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+
+.hero { position: relative; overflow: hidden; }
+.hero::before, .hero::after {
+  content: ""; position: absolute; border-radius: 50%; filter: blur(70px); opacity: .45; z-index: -1; pointer-events: none;
+}
+.hero::before { width: 420px; height: 420px; background: radial-gradient(circle, #ffd9c7, #ffb199); top: -120px; right: 8%; }
+.hero::after { width: 380px; height: 380px; background: radial-gradient(circle, #cfe4ff, #9ec5fe); bottom: -140px; left: -80px; }
+
+.hero-photo { position: relative; }
+.hero-photo::before {
+  content: ""; position: absolute; inset: -18px; border-radius: 32px; z-index: -1;
+  background: linear-gradient(135deg, #ffe9de 0%, #ffd2bd 55%, #cfe0ff 100%);
+}
+.hero-photo img { border-radius: 26px; display: block; }
+
+@media (max-width: 700px) {
+  .hero::before { width: 280px; height: 280px; right: -60px; }
+  .hero::after { width: 240px; height: 240px; left: -100px; }
+  .post-links .btn { width: 100%; text-align: center; }
+}
